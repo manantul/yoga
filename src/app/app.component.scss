@@ -1,0 +1,110 @@
+$default-font: 'Open Sans',
+Arial,
+sans-serif;
+body {
+    background-color: #f4f4ee;
+    font-family: $default-font;
+}
+
+.nav-customBg {
+    background: #EDF7F3;
+}
+
+.no-border {
+    border: 0;
+}
+
+.navbar-default {
+    margin-bottom: 0;
+    .container {
+        background-color: #ecf7f2;
+        padding: 1em 0 0;
+        border-bottom: 1px solid #cbe3d7;
+    }
+    .navbar-brand {
+        font-family: serif;
+        background: url("../assets/images/urban-logo.jpg") 0 0 no-repeat transparent;
+        overflow: hidden;
+        width: 230px;
+        height: 50px;
+        display: block;
+        float: left;
+        background-position: 26px center;
+        text-align: center;
+    }
+    .navbar-nav {
+        float: right;
+        margin: 5px 0 0;
+        padding: 0;
+        border: 1px solid #d4e2e6;
+        border-bottom: 0;
+        border-radius: 4px 4px 0 0;
+        background: #ffffff;
+        .btn {
+            font-size: .9em;
+            margin: 0;
+            padding: 0;
+            background: url("../assets/images/divider.png") left center/auto 100% no-repeat transparent;
+            float: left;
+            &:nth-child(1) {
+                background: none;
+            }
+            a {
+                color: #799c8a;
+                padding: 14px 16px;
+                &:focus {
+                    background: #fff;
+                }
+            }
+        }
+        .btn.open {
+            border: 1px solid #b6c2c5;
+            border-bottom: 0;
+            border-radius: 4px 4px 0 0;
+            background-color: #fff;
+            margin: -5px 0 0 0;
+            position: relative;
+            top: 1px;
+            left: -1px;
+            a {
+                font-weight: bold;
+                color: #000;
+                padding: 18px 16px 14px;
+                background: #fff;
+                &:focus,
+                &:hover {
+                    background: #fff;
+                    text-decoration: underline;
+                }
+            }
+            .subnav {
+                background-color: #fff;
+                .dropdown-menu {
+                    margin: 0 auto;
+                    max-width: 62.5rem;
+                    display: block;
+                    box-shadow: none;
+                    border-top: 0;
+                    padding: 0;
+                    border-top-left-radius: 0;
+                    background: linear-gradient(to bottom, #fff 0%, #eff3f1 100%);
+                    li {
+                        font-size: 0.9em;
+                        padding: 0;
+                        a {
+                            color: #777;
+                            padding: 16px;
+                            display: inline-block;
+                            &:focus,
+                            &:hover,
+                            &:active {
+                                font-weight: bold;
+                                color: #555;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

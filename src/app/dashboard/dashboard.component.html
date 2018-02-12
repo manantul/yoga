@@ -1,0 +1,115 @@
+<!-- <div>
+    <nvd3 [options]="stackedChartOptions" [data]="stackedChartData"></nvd3>
+</div> -->
+<div class="container dashboard">
+    <div class="row">
+        <div class="col-sm-2">
+            <a href="#" class="new-program" data-reveal-id="new-program-modal">
+                New Program
+            </a>
+        </div>
+        <div class="col-sm-10">
+            <div class="row">
+                <div class="col-sm-4" *ngFor="let item of programMasterdata; let i of index">
+                    <div class="card mx-auto">
+                        <div class="card-body">
+                            <h4>
+                                <span class="title">{{item.Name}}</span>
+                                <button class="edit btn btn-default pull-right btn-xs">
+                                            <i class="glyphicon glyphicon-pencil"></i>
+                                        </button>
+                            </h4>
+                            <h5>Sales by month</h5>
+                            <div *ngIf="showChart">
+                                <canvas baseChart [datasets]="item.Chart[0]" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [colors]="barChartColors"
+                                    [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row salesLabel">
+                                <div class="col-sm-4"><p class='totalSales monthlySales'>Total Monthly Sales</p></div>
+                                <div class="col-sm-4">
+                                    <p class='totalSales'>Current</p>
+                                    <span>${{item.Chart[1][2]}}</span>
+                                </div>
+                                <div class="col-sm-4">
+                                    <p class='totalSales'>1-Year</p>
+                                    <img src="../../assets/images/graphline.PNG" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body DetailList" *ngIf="item.show">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table class="table">
+                                        <colgroup>
+                                            <col width='10'>
+                                            <col width='5'>
+                                            <col width='5'>
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>Sales Category </th>
+                                                <th>Current </th>
+                                                <th>1-Year </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                             <tr *ngFor="let pricing of item.Pricing;let s of index">
+                                                    <td> {{pricing.Name}}</td>
+                                                    <td>{{pricing.Sales}}</td>
+                                                    <td class="chartContainer">
+                                                        <div class="linechart chart_{{s[2]}}"></div>
+                                                    </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    <a href="#" class="showHide" (click)="showmore(item)">{{item.show?"less": "more"}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row allprograms">
+                <div class="col-sm-12">
+                    <table class="table">
+                        <colgroup>
+                            <col>
+                            <col>
+                            <col>
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>
+                                    <h3>All Programs</h3>
+                                </th>
+                                <th>
+                                    <h5>Monthly Sales</h5>
+                                </th>
+                                <th>
+                                    <h5>Monthly Attendance</h5>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Open Practice</td>
+                                <td>$572.00</td>
+                                <td>@276 visits
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Yoga Videos</td>
+                                <td>$391.32 </td>
+                                <td>82 views</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
